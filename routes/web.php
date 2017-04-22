@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', ['as' => 'home', 'uses' => 'IndexController@showIndex']);
+
+Route::get('/albums', ['as' => 'albums', 'uses' => 'IndexController@showAlbums']);
+
+Route::get('/biography', ['as' => 'biography', 'uses' => 'IndexController@showBiography']);
+
+Route::get('/album/{name}', ['as' => 'album', 'uses' => 'IndexController@showAlbum'])
+    ->where('name', '[A-Za-z-]+');
