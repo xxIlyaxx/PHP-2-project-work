@@ -9,9 +9,11 @@
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
-                <a href="/" class="navbar-brand">Group name</a>
+                <a href="{{ route('home') }}" class="navbar-brand">Group name</a>
             </div>
         </div>
+        <a href="{{ route('biography') }}">Biography</a>
+        <a href="{{ route('albums') }}">Albums</a>
     </nav>
 @yield('content')
 </div>

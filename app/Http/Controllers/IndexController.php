@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-class IndexController
+class IndexController extends Controller
 {
     public function showIndex()
     {
@@ -16,7 +16,7 @@ class IndexController
 
     public function showAlbum(string $name)
     {
-        return view('album');
+        return view('album', ['name' => $name]);
     }
 
     public function showBiography()

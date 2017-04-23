@@ -1,5 +1,5 @@
-@extends('layouts/main')
+@extends('layouts.main')
 
 @section('content')
-    <h1>Album</h1>
+    <h1>{{ $name }}</h1>
 @endsection
