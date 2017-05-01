@@ -7,6 +7,7 @@
 </head>
 <body>
 <div class="container">
+    <a href="{{ route('home') }}">Home page</a>
     <a href="{{ route('admin/albums') }}">Albums</a>
     <a href="{{ route('admin/edit-description') }}">Description</a>
 @yield('content')

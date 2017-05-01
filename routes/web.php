@@ -36,4 +36,12 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('save-description', ['as' => 'admin/save-description', 'uses' => 'AdminController@saveDescription']);
     Route::get('edit-biography', ['as' => 'admin/edit-biography', 'uses' => 'AdminController@editBiography']);
     Route::post('save-biography', ['as' => 'admin/save-biography', 'uses' => 'AdminController@saveBiography']);
+    Route::get('photos', ['as' => 'admin/photos', 'uses' => 'AdminController@showPhotos']);
+    Route::get('edit-photo', ['as' => 'admin/edit-photo', 'uses' => 'AdminController@editPhoto']);
+    Route::post('save-photo', ['as' => 'admin/save-photo', 'uses' => 'AdminController@savePhoto']);
+    Route::get('remove-photo', ['as' => 'admin/remove-photo', 'uses' => 'AdminController@removePhoto']);
+
+//    Route::get('band', ['as' => 'admin/band', 'uses' => 'AdminController@showMusicians']);
+//    Route::get('edit-musician', ['as' => 'admin/edit-musician', 'uses' => 'AdminController@editMusician']);
+//    Route::get('save-musician', ['as' => 'admin/save-musician', 'uses' => 'AdminController@saveMusician']);
 });

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use File;
 use App\Song;
 use App\Album;
+use App\Photo;
 
 /**
  * Class AdminController
@@ -193,21 +195,79 @@ class AdminController extends Controller
 
     public function editDescription()
     {
-        return view('admin.edit-description');
+        $description = File::get(storage_path('files/description.txt'));
+        return view('admin.edit-description', ['description' => $description]);
     }
 
-    public function saveDescription()
+    public function saveDescription(Request $request)
     {
+        $this->validate($request, [
+            'description' => 'required|string'
+        ]);
+
+        File::put(storage_path('files/description.txt'), $request->description);
+
         return redirect()->route('admin');
     }
 
     public function editBiography()
     {
-        return view('admin.edit-biography');
+        $biography = File::get(storage_path('files/biography.txt'));
+
+        return view('admin.edit-biography', ['biography' => $biography]);
     }
 
-    public function saveBiography()
+    public function saveBiography(Request $request)
     {
+        $this->validate($request, [
+            'biography' => 'required|string'
+        ]);
+
+        File::put(storage_path('files/biography.txt'), $request->biography);
+
         return redirect()->route('admin');
+    }
+
+    public function showPhotos()
+    {
+        return view('admin.photos', ['photos' => Photo::all()]);
+    }
+
+    public function editPhoto(Request $request)
+    {
+        if ($request->has('photo')) {
+            $photo = Photo::find($request->photo);
+            $pageTitle = 'Edit photo';
+        } else {
+            $photo = new Photo();
+            $pageTitle = 'Add photo';
+        }
+
+        return view('admin.edit-photo', ['photo' => $photo, 'pageTitle' => $pageTitle]);
+    }
+
+    public function savePhoto(Request $request)
+    {
+        $photo = Photo::findOrNew($request->id);
+
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $file->move('files/photos', $file->getClientOriginalName());
+            $photo->photo = 'files/photos/' . $file->getClientOriginalName();
+        }
+
+        $photo->fill([
+            'description' => $request->description
+        ]);
+
+        $photo->save();
+
+        return redirect()->route('admin/photos');
+    }
+
+    public function removePhoto(Request $request)
+    {
+        Photo::destroy($request->photo);
+        return redirect()->route('admin/photos');
     }
 }

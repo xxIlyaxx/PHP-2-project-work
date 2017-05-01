@@ -1,0 +1,37 @@
+@extends('admin.layouts.main')
+@section('pageTitle', 'Photos')
+@section('content')
+    <a href="{{ route('admin/edit-photo') }}">Add photo</a>
+    <div>
+        @if ($photos)
+            <h1>Songs</h1>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Photo</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach ($photos as $photo)
+                    <tr>
+                        <td>{{ $photo->id }}</td>
+                        <td><img src="{{ asset($photo->photo) }}" alt="{{ $photo->description }}" height="60"></td>
+                        <td>{{ $photo->description }}</td>
+                        <td>
+                            <a href="{{ route('admin/edit-photo')}}?photo={{ $photo->id }}"
+                               class="glyphicon glyphicon-pencil"></a>
+                            <a href="{{ route('admin/remove-photo')}}?photo={{ $photo->id }}"
+                               class="glyphicon glyphicon-remove"></a>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
+        @else
+            <h2>No photos</h2>
+        @endif
+    </div>
+@endsection
