@@ -1,5 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-    <h1>{{ $name }}</h1>
+    <h1>{{ $album->name }}</h1>
+    <p> {{ $album->description }}</p>
 @endsection

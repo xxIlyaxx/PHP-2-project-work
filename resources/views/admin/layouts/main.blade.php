@@ -2,18 +2,13 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>@yield('pageTitle')</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
 <div class="container">
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
-                <a href="{{ route('home') }}" class="navbar-brand">Group name</a>
-            </div>
-        </div>
-    </nav>
+    <a href="{{ route('admin/albums') }}">Albums</a>
+    <a href="{{ route('admin/edit-description') }}">Description</a>
 @yield('content')
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
