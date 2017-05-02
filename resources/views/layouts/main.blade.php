@@ -11,12 +11,13 @@
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
             <div class="navbar-header">
-                <a href="{{ route('home') }}" class="navbar-brand">Group name</a>
+                <a href="{{ route('home') }}" class="navbar-brand">Group name fansite</a>
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="{{ route('biography') }}">Biography</a></li>
                 <li><a href="{{ route('albums') }}">Albums</a></li>
                 <li><a href="{{ route('photos') }}">Photos</a></li>
+                <li><a href="{{ route('admin') }}">Admin panel</a></li>
             </ul>
         </div>
     </nav>
