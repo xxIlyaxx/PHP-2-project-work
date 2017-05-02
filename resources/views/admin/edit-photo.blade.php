@@ -9,6 +9,7 @@
         <div class="form-group">
             <input type="file" name="photo" id="photo">
         </div>
+        <input type="hidden" name="id" value="{{ $photo->id }}">
         <a href="{{ URL::previous() }}" class="btn btn-danger">Cancel</a>
         <input type="submit" value="Send" class="btn btn-success">
     </form>

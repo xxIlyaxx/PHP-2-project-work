@@ -3,17 +3,23 @@
 @section('content')
     <a href="{{ route('admin/edit-album') }}">Add album</a>
     @forelse($albums as $album)
-        <div class="row">
-            <h2>{{ $album->name }}</h2>
-            <div class="col-sm-2">
-                <img src="{{ asset($album->photo) }}" alt="Album photo" class="img-responsive">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                {{ $album->name }}
             </div>
-            <div class="col-sm-10">
-                <p>{{ $album->description }}</p>
-                <p>{{ $album->date }}</p>
+            <div class="panel-body">
+                <div class="col-sm-2">
+                    <img src="{{ asset($album->cover) }}" alt="Album photo" class="img-responsive">
+                </div>
+                <div class="col-sm-10">
+                    <p>{{ $album->description }}</p>
+                    <p>{{ $album->date }}</p>
+                </div>
             </div>
-            <a href="{{ route('admin/edit-album') }}?album={{ $album->id }}">Edit album</a>
-            <a href="{{ route('admin/album', ['slug' => $album->slug]) }}">More</a>
+            <div class="panel-footer">
+                <a href="{{ route('admin/edit-album') }}?album={{ $album->id }}">Edit album</a>
+                <a href="{{ route('admin/album', ['slug' => $album->slug]) }}">More</a>
+            </div>
         </div>
     @empty
         <p>No albums</p>

@@ -5,6 +5,13 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use File;
 
+/**
+ * Class Photo
+ * @package App
+ *
+ * @property string $photo
+ * @property string $description
+ */
 class Photo extends Model
 {
     protected $fillable = [

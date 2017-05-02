@@ -91,7 +91,7 @@ class AdminController extends Controller
         if ($request->hasFile('cover')) {
             $file = $request->file('cover');
             $file->move('files/covers', $file->getClientOriginalName());
-            $album->photo = 'files/covers/' . $file->getClientOriginalName();
+            $album->cover = 'files/covers/' . $file->getClientOriginalName();
         }
 
         $album->fill([
@@ -193,12 +193,23 @@ class AdminController extends Controller
         return redirect()->route('admin/album', ['slug' => $album->slug]);
     }
 
+    /**
+     * Shows the page with the form to editing the description
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function editDescription()
     {
         $description = File::get(storage_path('files/description.txt'));
         return view('admin.edit-description', ['description' => $description]);
     }
 
+    /**
+     * Saves the description
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function saveDescription(Request $request)
     {
         $this->validate($request, [
@@ -210,6 +221,11 @@ class AdminController extends Controller
         return redirect()->route('admin');
     }
 
+    /**
+     * Shows the page with the form to editing the biography
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function editBiography()
     {
         $biography = File::get(storage_path('files/biography.txt'));
@@ -217,6 +233,12 @@ class AdminController extends Controller
         return view('admin.edit-biography', ['biography' => $biography]);
     }
 
+    /**
+     * Saves the biography
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function saveBiography(Request $request)
     {
         $this->validate($request, [
@@ -233,6 +255,12 @@ class AdminController extends Controller
         return view('admin.photos', ['photos' => Photo::all()]);
     }
 
+    /**
+     * Shows the page with the form to editing a photo
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function editPhoto(Request $request)
     {
         if ($request->has('photo')) {
@@ -246,6 +274,12 @@ class AdminController extends Controller
         return view('admin.edit-photo', ['photo' => $photo, 'pageTitle' => $pageTitle]);
     }
 
+    /**
+     * Saves a photo
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function savePhoto(Request $request)
     {
         $photo = Photo::findOrNew($request->id);
@@ -265,6 +299,12 @@ class AdminController extends Controller
         return redirect()->route('admin/photos');
     }
 
+    /**
+     * Removes a photo
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function removePhoto(Request $request)
     {
         Photo::destroy($request->photo);

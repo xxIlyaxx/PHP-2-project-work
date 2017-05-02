@@ -9,7 +9,6 @@ use File;
  * Class Album
  * @package App
  *
- * @property string id
  * @property string name
  * @property string slug
  * @property string photo
@@ -21,7 +20,7 @@ class Album extends Model
     protected $fillable = [
         'name',
         'slug',
-        'photo',
+        'cover',
         'description',
         'date',
     ];
@@ -31,11 +30,11 @@ class Album extends Model
         return $this->hasMany(Song::class);
     }
 
-    public function setPhotoAttribute($value)
+    public function setCoverAttribute($value)
     {
-        if (array_has($this->attributes, 'photo') && null !== $this->attributes['photo']) {
-            File::delete(public_path($this->attributes['photo']));
+        if (array_has($this->attributes, 'cover') && null !== $this->attributes['cover']) {
+            File::delete(public_path($this->attributes['cover']));
         }
-        $this->attributes['photo'] = $value;
+        $this->attributes['cover'] = $value;
     }
 }

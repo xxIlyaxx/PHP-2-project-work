@@ -17,7 +17,7 @@ class CreateAlbumsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('slug')->unique();
-            $table->string('photo');
+            $table->string('cover');
             $table->text('description');
             $table->date('date');
             $table->timestamps();

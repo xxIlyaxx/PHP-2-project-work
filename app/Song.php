@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
  * Class Song
  * @package App
  *
+ * @property string $name
+ * @property string $duration
+ * @property string $album_id
  */
 class Song extends Model
 {
