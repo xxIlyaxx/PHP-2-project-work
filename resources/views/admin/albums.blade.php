@@ -18,6 +18,7 @@
             </div>
             <div class="panel-footer">
                 <a href="{{ route('admin/edit-album') }}?album={{ $album->id }}">Edit album</a>
+                <a href="{{ route('admin/remove-album') }}?album={{ $album->id }}">Remove album</a>
                 <a href="{{ route('admin/album', ['slug' => $album->slug]) }}">More</a>
             </div>
         </div>

@@ -116,7 +116,9 @@ class AdminController extends Controller
         $this->validate($request, [
             'album' => 'required|integer'
         ]);
-        Album::destroy($request->album);
+        $album = Album::find($request->album);
+        $album->songs()->delete();
+        $album->delete();
         return redirect()->route('admin/albums');
     }
 
