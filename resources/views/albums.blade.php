@@ -4,13 +4,13 @@
 @section('content')
     <h1>Albums</h1>
     @forelse($albums as $album)
-        <div class="panel panel-default">
-            <div class="panel-heading">{{ $album->name }}</div>
-            <div class="panel-body">
-                <img src="{{ asset($album->cover) }}" alt="{{ $album->name }}">
-                <p>{{ $album->description }}</p>
+        <div class="media">
+            <div class="media-left media-middle">
+                <img src="{{ asset($album->cover) }}" alt="{{ $album->name }}" class="media-object" width="200">
             </div>
-            <div class="panel-footer">
+            <div class="media-body">
+                <h2 class="media-heading">{{ $album->name }}</h2>
+                <p>{{ $album->description }}</p>
                 <a href="{{ route('album', ['slug' => $album->slug]) }}">More</a>
             </div>
         </div>

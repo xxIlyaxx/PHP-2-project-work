@@ -14,9 +14,10 @@
                 <a href="{{ route('home') }}" class="navbar-brand">Group name fansite</a>
             </div>
             <ul class="nav navbar-nav">
-                <li><a href="{{ route('biography') }}">Biography</a></li>
-                <li><a href="{{ route('albums') }}">Albums</a></li>
-                <li><a href="{{ route('photos') }}">Photos</a></li>
+                <li class="{{ Request::is('biography') ? 'active' : '' }}"><a
+                            href="{{ route('biography') }}">Biography</a></li>
+                <li class="{{ Request::is('albums') ? 'active' : '' }}"><a href="{{ route('albums') }}">Albums</a></li>
+                <li class="{{ Request::is('photos') ? 'active' : '' }}"><a href="{{ route('photos') }}">Photos</a></li>
                 <li><a href="{{ route('admin') }}">Admin panel</a></li>
             </ul>
         </div>
