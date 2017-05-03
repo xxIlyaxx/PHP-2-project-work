@@ -2,6 +2,7 @@
 @section('pageTitle', $pageTitle)
 @section('content')
     <h1>@yield('pageTitle')</h1>
+    @include('errors')
     <form action="{{ route('admin/save-photo') }}" method="POST" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-group">

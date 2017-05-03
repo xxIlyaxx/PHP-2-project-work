@@ -78,13 +78,12 @@ class AdminController extends Controller
      */
     public function saveAlbum(Request $request)
     {
-//        $this->validate($request, [
-//            'name' => 'required|string',
-//            'description' => 'present|string',
-//            'cover' => 'present|image',
-//            'date' => 'required|date',
-//            'id' => 'present|integer'
-//        ]);
+        $this->validate($request, [
+            'name' => 'required|string',
+            'description' => 'present|string',
+            'cover' => 'present|image',
+            'date' => 'required|date',
+        ]);
 
         $album = Album::findOrNew($request->id);
 
@@ -156,13 +155,12 @@ class AdminController extends Controller
      */
     public function saveSong(Request $request)
     {
-//        $this->validate($request, [
-//            'name' => 'present|required|string',
-//            'min' => 'present|integer',
-//            'sec' => 'present|integer',
-//            'id' => 'present|integer',
-//            'album_id' => 'present|integer',
-//        ]);
+        $this->validate($request, [
+            'name' => 'present|required|string',
+            'min' => 'present|integer',
+            'sec' => 'present|integer',
+            'album_id' => 'require|integer',
+        ]);
 
         $song = Song::findOrNew($request->id);
 

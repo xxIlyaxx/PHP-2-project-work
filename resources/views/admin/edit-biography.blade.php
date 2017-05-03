@@ -2,6 +2,7 @@
 @section('pageTitle', 'Edit biography')
 @section('content')
     <h1>@yield('pageTitle')</h1>
+    @include('errors')
     <form action="{{ route('admin/save-biography') }}" method="POST">
         {{ csrf_field() }}
         <div class="form-group">

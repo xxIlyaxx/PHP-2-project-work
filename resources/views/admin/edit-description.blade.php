@@ -2,6 +2,7 @@
 @section('pageTitle', 'Edit description')
 @section('content')
     <h1>@yield('pageTitle')</h1>
+    @include('errors')
     <form action="{{ route('admin/save-description') }}" method="POST">
         {{ csrf_field() }}
         <div class="form-group">

@@ -2,6 +2,7 @@
 @section('pageTitle', $pageTitle)
 @section('content')
     <h1>@yield('pageTitle')</h1>
+    @include('errors')
     <form action="{{ route('admin/save-song') }}" method="POST">
         {{ csrf_field() }}
         <div class="form-group">
