@@ -159,7 +159,7 @@ class AdminController extends Controller
             'name' => 'present|required|string',
             'min' => 'present|integer',
             'sec' => 'present|integer',
-            'album_id' => 'require|integer',
+            'album_id' => 'required|integer',
         ]);
 
         $song = Song::findOrNew($request->id);
