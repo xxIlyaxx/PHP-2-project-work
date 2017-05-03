@@ -1,6 +1,7 @@
 @extends('admin.layouts.main')
 @section('pageTitle', 'Albums')
 @section('content')
+    <h1>@yield('pageTitle')</h1>
     <a href="{{ route('admin/edit-album') }}">Add album</a>
     @forelse($albums as $album)
         <div class="panel panel-default">

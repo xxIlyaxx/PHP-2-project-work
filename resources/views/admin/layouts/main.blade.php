@@ -7,8 +7,20 @@
 </head>
 <body>
 <div class="container">
-    <a href="{{ route('home') }}">Home page</a>
-    <a href="{{ route('admin') }}">Admin panel</a>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="{{ route('admin') }}" class="navbar-brand">Admin panel</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="{{ route('admin/edit-description') }}">Description</a></li>
+                <li><a href="{{ route('admin/edit-biography') }}">Biography</a></li>
+                <li><a href="{{ route('admin/albums') }}">Albums</a></li>
+                <li><a href="{{ route('admin/photos') }}">Photos</a></li>
+                <li><a href="{{ route('home') }}">Main page</a></li>
+            </ul>
+        </div>
+    </nav>
 @yield('content')
 </div>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>

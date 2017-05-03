@@ -1,10 +1,10 @@
 @extends('admin.layouts.main')
 @section('pageTitle', 'Photos')
 @section('content')
+    <h1>@yield('pageTitle')</h1>
     <a href="{{ route('admin/edit-photo') }}">Add photo</a>
     <div>
         @if ($photos)
-            <h1>Songs</h1>
             <table class="table table-striped">
                 <thead>
                 <tr>

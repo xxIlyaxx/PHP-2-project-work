@@ -1,6 +1,7 @@
 @extends('admin.layouts.main')
 @section('pageTitle', 'Admin panel')
 @section('content')
+    <h1>@yield('pageTitle')</h1>
     <div class="list-group">
         <a href="{{ route('admin/edit-description') }}" class="list-group-item">Edit description</a>
         <a href="{{ route('admin/edit-biography') }}" class="list-group-item">Edit biography</a>

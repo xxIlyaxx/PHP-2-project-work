@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container">
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
                 <a href="{{ route('home') }}" class="navbar-brand">Group name fansite</a>

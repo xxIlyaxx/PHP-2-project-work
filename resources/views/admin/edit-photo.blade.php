@@ -1,5 +1,7 @@
 @extends('admin.layouts.main')
+@section('pageTitle', $pageTitle)
 @section('content')
+    <h1>@yield('pageTitle')</h1>
     <form action="{{ route('admin/save-photo') }}" method="POST" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-group">
@@ -11,6 +13,6 @@
         </div>
         <input type="hidden" name="id" value="{{ $photo->id }}">
         <a href="{{ URL::previous() }}" class="btn btn-danger">Cancel</a>
-        <input type="submit" value="Send" class="btn btn-success">
+        <input type="submit" value="Save" class="btn btn-success">
     </form>
 @endsection

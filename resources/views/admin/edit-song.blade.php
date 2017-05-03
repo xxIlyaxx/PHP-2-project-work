@@ -1,5 +1,7 @@
 @extends('admin.layouts.main')
+@section('pageTitle', $pageTitle)
 @section('content')
+    <h1>@yield('pageTitle')</h1>
     <form action="{{ route('admin/save-song') }}" method="POST">
         {{ csrf_field() }}
         <div class="form-group">
@@ -17,6 +19,6 @@
         <input type="hidden" name="id" value="{{ $song->id }}">
         <input type="hidden" name="album_id" value="{{ $album->id }}">
         <a href="{{ URL::previous() }}" class="btn btn-danger">Cancel</a>
-        <input type="submit" value="Send" class="btn btn-success">
+        <input type="submit" value="Save" class="btn btn-success">
     </form>
 @endsection
