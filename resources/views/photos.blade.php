@@ -3,16 +3,21 @@
 
 @section('content')
     <h1>Photos</h1>
-    @forelse($photos as $photo)
-        <div class="col-md-4">
-            <div class="thumbnail">
-                <img src="{{ asset($photo->photo) }}" width="300">
-                <div class="caption">
-                    <p>{{ $photo->description }}</p>
+    @if ($photos)
+        <div class="container">
+        @foreach($photos as $photo)
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <img src="{{ asset($photo->photo) }}" width="300">
+                    <div class="caption">
+                        <p>{{ $photo->description }}</p>
+                    </div>
                 </div>
             </div>
+        @endforeach
         </div>
-    @empty
+        {{ $photos->links() }}
+    @else
         <p>No photos</p>
-    @endforelse
+    @endif
 @endsection

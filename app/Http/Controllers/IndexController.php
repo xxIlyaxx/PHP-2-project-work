@@ -59,7 +59,6 @@ class IndexController extends Controller
      */
     public function showPhotos()
     {
-        $photos = Photo::all();
-        return view('photos', ['photos' => $photos]);
+        return view('photos', ['photos' => Photo::paginate(12)]);
     }
 }
