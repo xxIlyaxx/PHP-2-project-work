@@ -3,5 +3,5 @@
 
 @section('content')
     <h1>Biography</h1>
-    <div>{{ $biography }}</div>
+    {!! Markdown::parse($biography) !!}
 @endsection

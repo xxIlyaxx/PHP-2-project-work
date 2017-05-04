@@ -157,8 +157,8 @@ class AdminController extends Controller
     {
         $this->validate($request, [
             'name' => 'present|required|string',
-            'min' => 'present|integer',
-            'sec' => 'present|integer',
+            'min' => 'required|integer',
+            'sec' => 'required|integer',
             'album_id' => 'required|integer',
         ]);
 

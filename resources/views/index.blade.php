@@ -3,5 +3,5 @@
 
 @section('content')
     <h1>Group name</h1>
-    <p>{{ $description }}</p>
+    {!! Markdown::parse($description) !!}
 @endsection

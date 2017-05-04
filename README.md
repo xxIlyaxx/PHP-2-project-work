@@ -23,3 +23,5 @@
 * CreateSongsTable https://github.com/xxIlyaxx/PHP-2-project-work/blob/master/database/migrations/2017_04_21_080257_create_songs_table.php
 * CreateAlbumTable https://github.com/xxIlyaxx/PHP-2-project-work/blob/master/database/migrations/2017_04_23_073212_create_albums_table.php
 * CreatePhotosTable https://github.com/xxIlyaxx/PHP-2-project-work/blob/master/database/migrations/2017_05_01_104041_create_photos_table.php
+
+Для форматирования описания и биографии группы используется Markdown парсер.
