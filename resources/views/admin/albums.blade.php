@@ -13,7 +13,7 @@
                     <img src="{{ asset($album->cover) }}" alt="Album photo" class="img-responsive">
                 </div>
                 <div class="col-sm-10">
-                    <p>{{ $album->description }}</p>
+                    {!! Markdown::parse($album->description) !!}
                     <p>{{ $album->date }}</p>
                 </div>
             </div>

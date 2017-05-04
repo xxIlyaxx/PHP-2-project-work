@@ -3,7 +3,7 @@
 @section('content')
     <h1>{{ $album->name }}</h1>
     <img src="{{ asset($album->cover) }}" alt="{{ $album->name }}">
-    <p> {{ $album->description }}</p>
+    {!! Markdown::parse($album->description) !!}
     <a href="{{ route('admin/edit-album') }}?album={{ $album->id }}">Edit album</a>
     <a href="{{ route('admin/edit-song') }}?album={{ $album->id }}">Add song</a>
     <div>

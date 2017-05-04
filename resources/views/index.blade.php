@@ -2,6 +2,6 @@
 @section('pageTitle', 'Group name')
 
 @section('content')
-    <h1>Group name</h1>
+    <h1>Circus Maximus Fansite</h1>
     {!! Markdown::parse($description) !!}
 @endsection

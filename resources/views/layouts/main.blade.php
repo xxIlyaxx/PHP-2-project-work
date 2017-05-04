@@ -11,7 +11,7 @@
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
-                <a href="{{ route('home') }}" class="navbar-brand">Group name fansite</a>
+                <a href="{{ route('home') }}" class="navbar-brand">Circus maximus fansite</a>
             </div>
             <ul class="nav navbar-nav">
                 <li class="{{ Request::is('biography') ? 'active' : '' }}"><a

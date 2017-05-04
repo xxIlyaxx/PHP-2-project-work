@@ -10,7 +10,7 @@
             </div>
             <div class="media-body">
                 <h2 class="media-heading">{{ $album->name }}</h2>
-                <p>{{ $album->description }}</p>
+                {!! Markdown::parse($album->description) !!}
                 <a href="{{ route('album', ['slug' => $album->slug]) }}">More</a>
             </div>
         </div>
